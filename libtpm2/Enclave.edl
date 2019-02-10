@@ -1,0 +1,53 @@
+/* Enclave.edl - Top EDL file. */
+
+
+enclave {
+	include "time.h"
+	include "ssl_enclave_types.h"
+	from "sgx_tstdc.edl" import *;
+	from "sgx_tprotected_fs.edl" import *;
+    
+	
+    trusted {
+
+        public int ecall_TPM_VolatileAll_Store([out, size=12926]unsigned char *buffer);
+
+        public int ecall_TPM_VolatileAll_Load([in, size=stream_size]unsigned char *stream, uint32_t stream_size);
+
+        public int ecall_TPMLIB_RegisterCallbacks([user_check]void *cb);
+
+        public int ecall_plat__NVEnable_Path([user_check]void *platParameter, [in,string]const char *path);
+
+        public int ecall_plat__NvInit([in, size=16] uint8_t *qemu_uuid);
+
+        public int ecall_plat__NvLoad([in,size=16] uint8_t *qemu_uuid);
+
+        public int ecall_plat__Signal_PowerOn(void);
+
+        public void ecall_TPM_Init(void);
+
+        public void ecall_ExecuteCommand(uint32_t requestSize, [in,size=requestSize]unsigned char *request, [in,out]uint32_t *responseSize, [user_check]unsigned char **response);
+
+        public void ecall_plat__LocalitySet(unsigned char locality);
+        
+        public void ecall_plat__Signal_PowerOff(void);
+
+        public int ecall_TPM_Manufacture(int firstTime);
+
+	};
+
+    untrusted {
+
+        void ocall_getTime(void);
+
+        void ocall_gettimeofday([out]struct timeval*tv, [out]struct timezone *tz);
+
+        int ocall_tpm_ltpms_nvram_init(void);
+
+        int ocall_tpm_ltpms_nvram_storedata([in,size=length]const unsigned char *data, uint32_t length, uint32_t tpm_number, [in,string]const char *name);
+
+        int ocall_tpm_ltpms_nvram_loaddata([out,size=16960]unsigned char *data, [out]uint32_t *length, uint32_t tpm_number, [in,string]const char *name);
+   
+    };
+
+};

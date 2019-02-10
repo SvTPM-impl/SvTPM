@@ -1,0 +1,4 @@
+obj-$(CONFIG_ACPI) += virt-acpi-build.o
+obj-y += sysbus-fdt.o
+
+obj-y += boot.o virt.o
