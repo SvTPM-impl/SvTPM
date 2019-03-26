@@ -2259,8 +2259,7 @@ build_dsdt(GArray *table_data, BIOSLinker *linker,
 
                 if (misc->tpm_version != TPM_VERSION_UNSPEC) {
                     dev = aml_device("ISA.TPM");
-                    //aml_append(dev, aml_name_decl("_HID", aml_eisaid("PNP0C31")));
-                    aml_append(dev, aml_name_decl("_HID", aml_string("MSFT0101")));
+                    aml_append(dev, aml_name_decl("_HID", aml_eisaid("PNP0C31")));
 		    aml_append(dev, aml_name_decl("_STA", aml_int(0xF)));
                     crs = aml_resource_template();
                     aml_append(crs, aml_memory32_fixed(TPM_TIS_ADDR_BASE,
