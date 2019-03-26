@@ -61,7 +61,6 @@
 
 #ifndef CRYPTHASH_H
 #define CRYPTHASH_H
-#include "CryptSm3.h"
 
 /* 10.1.3 CryptHash.h */
 /* 10.1.3.1 Hash Related Structures */

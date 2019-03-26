@@ -96,8 +96,8 @@
 #define  ALG_SHA256            ALG_YES
 #define  ALG_SHA384            ALG_YES
 #define  ALG_SHA512            ALG_NO
-#define  ALG_SM3_256           ALG_YES
-#define  ALG_SM4               ALG_YES
+#define  ALG_SM3_256           ALG_NO
+#define  ALG_SM4               ALG_NO
 #define  ALG_RSASSA            (ALG_YES*ALG_RSA)
 #define  ALG_RSAES             (ALG_YES*ALG_RSA)
 #define  ALG_RSAPSS            (ALG_YES*ALG_RSA)
@@ -106,7 +106,7 @@
 #define  ALG_ECDH              (ALG_YES*ALG_ECC)
 #define  ALG_ECDSA             (ALG_YES*ALG_ECC)
 #define  ALG_ECDAA             (ALG_YES*ALG_ECC)
-#define  ALG_SM2               (ALG_YES*ALG_ECC)
+#define  ALG_SM2               (ALG_NO*ALG_ECC)
 #define  ALG_ECSCHNORR         (ALG_YES*ALG_ECC)
 #define  ALG_ECMQV             (ALG_NO*ALG_ECC)
 #define  ALG_SYMCIPHER         ALG_YES

@@ -71,7 +71,6 @@
 #define _TPM_TO_OSSL_SYM_H_
 #if SYM_LIB == OSSL
 #include <openssl/aes.h>
-#include "CryptSm4.h"
 #include <openssl/des.h>
 #include <openssl/bn.h>
 #include <openssl/ossl_typ.h>
